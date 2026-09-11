@@ -11,6 +11,7 @@ export type NavMenu = {
   image?: string;
 };
 
+/** Primary desktop nav — kept lean; Sale / Edit live inside mega menus. */
 export const navMenus: NavMenu[] = [
   { label: "NEW IN", href: "/#new-arrivals" },
   {
@@ -23,30 +24,25 @@ export const navMenus: NavMenu[] = [
         heading: "SHOP BY CATEGORY",
         links: [
           { label: "Dresses", href: "/clothing" },
-          { label: "Tops", href: "/clothing" },
-          { label: "Blazers", href: "/clothing" },
-          { label: "Coats", href: "/clothing" },
           { label: "Knitwear", href: "/clothing" },
+          { label: "Tailoring", href: "/clothing" },
+          { label: "Tops", href: "/clothing" },
           { label: "Skirts", href: "/clothing" },
-          { label: "Trousers", href: "/clothing" },
-          { label: "Denim", href: "/clothing" },
-          { label: "Eveningwear", href: "/clothing" },
         ],
       },
       {
         heading: "FEATURED",
         links: [
-          { label: "New Arrivals", href: "/clothing" },
+          { label: "New Arrivals", href: "/#new-arrivals" },
           { label: "The Edit", href: "/the-edit" },
-          { label: "Best Sellers", href: "/clothing" },
+          { label: "Shop the Look", href: "/shop-the-look" },
         ],
       },
       {
-        heading: "OCCASION",
+        heading: "MORE",
         links: [
-          { label: "Daywear", href: "/clothing" },
-          { label: "Evening", href: "/clothing" },
-          { label: "Travel", href: "/travel" },
+          { label: "Sale", href: "/handbags" },
+          { label: "Eveningwear", href: "/clothing" },
         ],
       },
     ],
@@ -65,25 +61,20 @@ export const navMenus: NavMenu[] = [
           { label: "Tote Bags", href: "/handbags" },
           { label: "Top Handle Bags", href: "/handbags" },
           { label: "Mini Bags", href: "/handbags" },
-          { label: "Evening Bags", href: "/handbags" },
         ],
       },
       {
         heading: "FEATURED",
         links: [
-          { label: "New Arrivals", href: "/handbags" },
-          { label: "Romeah Icons", href: "/handbags" },
-          { label: "Italian Leather", href: "/handbags" },
-          { label: "Editor's Picks", href: "/handbags" },
-          { label: "Best Sellers", href: "/handbags" },
+          { label: "Firenze Shoulder Bag", href: "/product/firenze-shoulder-bag" },
+          { label: "Bags of the Season", href: "/#bags" },
+          { label: "Sale", href: "/handbags" },
         ],
       },
       {
         heading: "ACCESSORIES",
         links: [
           { label: "Wallets", href: "/handbags" },
-          { label: "Card Holders", href: "/handbags" },
-          { label: "Bag Charms", href: "/handbags" },
           { label: "Straps", href: "/handbags" },
           { label: "Small Leather Goods", href: "/handbags" },
         ],
@@ -94,25 +85,22 @@ export const navMenus: NavMenu[] = [
     label: "SHOES",
     href: "/shoes",
     hasMega: true,
-    image: "/images/handbags/milano-black-front.jpg",
+    image: "/images/shoes/heels/porto-heel.jpg",
     columns: [
       {
         heading: "SHOP BY STYLE",
         links: [
           { label: "Heels", href: "/shoes" },
-          { label: "Pumps", href: "/shoes" },
-          { label: "Sandals", href: "/shoes" },
-          { label: "Loafers", href: "/shoes" },
-          { label: "Sneakers", href: "/shoes" },
-          { label: "Boots", href: "/shoes" },
           { label: "Flats", href: "/shoes" },
+          { label: "Loafers", href: "/shoes" },
+          { label: "Boots", href: "/shoes" },
         ],
       },
       {
         heading: "FEATURED",
         links: [
           { label: "New Arrivals", href: "/shoes" },
-          { label: "Best Sellers", href: "/shoes" },
+          { label: "Sale", href: "/shoes" },
         ],
       },
       {
@@ -137,54 +125,20 @@ export const navMenus: NavMenu[] = [
           { label: "Earrings", href: "/jewelry" },
           { label: "Bracelets", href: "/jewelry" },
           { label: "Rings", href: "/jewelry" },
-          { label: "Watches", href: "/jewelry" },
-          { label: "Jewelry Sets", href: "/jewelry" },
         ],
       },
       {
         heading: "FEATURED",
         links: [
-          { label: "New Arrivals", href: "/jewelry" },
           { label: "Fine Details", href: "/#jewelry" },
+          { label: "The Edit", href: "/the-edit" },
         ],
       },
       {
         heading: "FINISH",
         links: [
-          { label: "Gold-tone", href: "/jewelry" },
-          { label: "Silver-tone", href: "/jewelry" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "ACCESSORIES",
-    href: "/handbags",
-    hasMega: true,
-    image: "/images/handbags/roma-ivory-front.jpg",
-    columns: [
-      {
-        heading: "LEATHER GOODS",
-        links: [
-          { label: "Wallets", href: "/handbags" },
-          { label: "Card Holders", href: "/handbags" },
-          { label: "Straps", href: "/handbags" },
-        ],
-      },
-      {
-        heading: "FINISHING TOUCHES",
-        links: [
-          { label: "Scarves", href: "/clothing" },
-          { label: "Belts", href: "/clothing" },
-          { label: "Bag Charms", href: "/handbags" },
-        ],
-      },
-      {
-        heading: "FEATURED",
-        links: [
-          { label: "New Arrivals", href: "/#new-arrivals" },
-          { label: "The Edit", href: "/the-edit" },
-          { label: "Shop the Look", href: "/shop-the-look" },
+          { label: "Champagne Gold", href: "/jewelry" },
+          { label: "Sale", href: "/jewelry" },
         ],
       },
     ],
@@ -198,28 +152,26 @@ export const navMenus: NavMenu[] = [
       {
         heading: "LUGGAGE",
         links: [
-          { label: "Carry-On", href: "/travel" },
-          { label: "Checked Luggage", href: "/travel" },
-          { label: "Weekend Bags", href: "/travel" },
-          { label: "Travel Totes", href: "/travel" },
-        ],
-      },
-      {
-        heading: "ACCESSORIES",
-        links: [
-          { label: "Beauty Cases", href: "/travel" },
-          { label: "Travel Accessories", href: "/travel" },
+          { label: "Carry-On", href: "/travel#carry-on" },
+          { label: "Weekend", href: "/travel#weekend" },
+          { label: "Long-Haul", href: "/travel#long-haul" },
+          { label: "Travel Accessories", href: "/travel#accessories" },
         ],
       },
       {
         heading: "STORIES",
         links: [
-          { label: "72 Hours in Florence", href: "/travel" },
           { label: "The Art of Arrival", href: "/travel" },
+          { label: "72 Hours in Florence", href: "/travel#florence" },
+        ],
+      },
+      {
+        heading: "MORE",
+        links: [
+          { label: "Sale", href: "/travel" },
+          { label: "Shop the Look", href: "/shop-the-look" },
         ],
       },
     ],
   },
-  { label: "THE EDIT", href: "/the-edit" },
-  { label: "SALE", href: "/handbags" },
 ];

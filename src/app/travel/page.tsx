@@ -3,19 +3,52 @@ import Link from "next/link";
 import CoverImage from "@/components/CoverImage";
 import Footer from "@/components/Footer";
 import { TravelProductCard } from "@/components/ProductCard";
-import { getProductsByCategory } from "@/data/products";
+import { getProductsByCategory, type Product } from "@/data/products";
 
 export const metadata = {
   title: "Romeah Travel — The Art of Arrival",
 };
 
-const travelCategories = [
-  "Carry-On",
-  "Checked Luggage",
-  "Weekend Bags",
-  "Travel Totes",
-  "Beauty Cases",
-  "Travel Accessories",
+const travelSections: {
+  id: string;
+  title: string;
+  eyebrow: string;
+  copy: string;
+  match: (p: Product) => boolean;
+}[] = [
+  {
+    id: "carry-on",
+    title: "Carry-On",
+    eyebrow: "CABIN",
+    copy: "Light cases sized for the overhead — polished enough for the lobby.",
+    match: (p) =>
+      (p.subcategory ?? "").toLowerCase().includes("carry") ||
+      p.slug.includes("cabin"),
+  },
+  {
+    id: "weekend",
+    title: "Weekend",
+    eyebrow: "SHORT ESCAPES",
+    copy: "Soft structure for two or three days away — train platforms to late dinners.",
+    match: (p) => (p.subcategory ?? "").toLowerCase().includes("weekend"),
+  },
+  {
+    id: "long-haul",
+    title: "Long-Haul",
+    eyebrow: "EXTENDED JOURNEYS",
+    copy: "Expanded capacity with quiet hardware — for the week that begins in Milan.",
+    match: (p) => (p.subcategory ?? "").toLowerCase().includes("long"),
+  },
+  {
+    id: "accessories",
+    title: "Travel Accessories",
+    eyebrow: "THE FINISH",
+    copy: "Pouches and companions that keep the case composed.",
+    match: (p) =>
+      (p.subcategory ?? "").toLowerCase().includes("accessor") ||
+      (p.subcategory ?? "").toLowerCase().includes("pouch") ||
+      p.slug.includes("pouch"),
+  },
 ];
 
 export default function TravelPage() {
@@ -26,7 +59,7 @@ export default function TravelPage() {
       <section className="relative min-h-[80vh] flex items-end">
         <CoverImage
           src="/images/travel/travel-main.jpg"
-          alt="Romeah travel — Italian city arrival light for The Art of Arrival"
+          alt="Romeah travel — refined departure mood for The Art of Arrival"
           priority
           className="object-cover"
         />
@@ -40,7 +73,7 @@ export default function TravelPage() {
             Objects created for journeys, designed to belong wherever you go.
           </p>
           <Link
-            href="#collection"
+            href="#carry-on"
             className="inline-block bg-white text-black px-8 py-4 text-xs tracking-[0.15em]"
           >
             EXPLORE THE COLLECTION
@@ -48,29 +81,59 @@ export default function TravelPage() {
         </div>
       </section>
 
-      <section className="border-y border-black/10 overflow-x-auto">
-        <div className="flex justify-center min-w-max gap-10 px-8 py-6 text-xs tracking-[0.14em]">
-          {travelCategories.map((item) => (
-            <button key={item} type="button">
-              {item.toUpperCase()}
-            </button>
+      <section className="border-y border-black/10 bg-[#FCFBF9]">
+        <div className="max-w-[1500px] mx-auto px-6 md:px-10 py-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
+          {travelSections.map((section) => (
+            <Link
+              key={section.id}
+              href={`#${section.id}`}
+              className="group border border-black/10 p-6 hover:bg-[#F7F3EE] transition-colors"
+            >
+              <p className="text-[10px] tracking-[0.18em] text-black/45 mb-3">
+                {section.eyebrow}
+              </p>
+              <h2 className="font-serif text-2xl mb-2 group-hover:opacity-80">
+                {section.title}
+              </h2>
+              <p className="text-sm text-black/55 leading-6">{section.copy}</p>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section id="collection" className="max-w-[1500px] mx-auto px-8 py-24">
-        <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.2em] mb-4">LUGGAGE</p>
-          <h2 className="font-serif text-5xl">Travel Companions</h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-          {travelProducts.map((product) => (
-            <TravelProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </section>
+      {travelSections.map((section) => {
+        const items = travelProducts.filter(section.match);
+        if (items.length === 0) return null;
+        return (
+          <section
+            key={section.id}
+            id={section.id}
+            className="max-w-[1500px] mx-auto px-8 py-20 border-b border-black/10 scroll-mt-28"
+          >
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+              <div>
+                <p className="text-xs tracking-[0.2em] mb-3 text-black/45">
+                  {section.eyebrow}
+                </p>
+                <h2 className="font-serif text-4xl md:text-5xl">
+                  {section.title}
+                </h2>
+              </div>
+              <p className="max-w-md text-black/60 leading-7">{section.copy}</p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-10 max-w-5xl">
+              {items.map((product) => (
+                <TravelProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </section>
+        );
+      })}
 
-      <section className="grid lg:grid-cols-2 bg-[#241F1C] text-white">
+      <section
+        id="florence"
+        className="grid lg:grid-cols-2 bg-[#241F1C] text-white scroll-mt-28"
+      >
         <div className="relative min-h-[620px]">
           <CoverImage
             src="/images/travel/florence-weekend.jpg"
@@ -101,33 +164,40 @@ export default function TravelPage() {
       <section className="max-w-[1500px] mx-auto px-8 py-20 grid md:grid-cols-3 gap-6">
         {[
           {
-            src: "/images/travel/airport-editorial.jpg",
-            alt: "Refined airport terminal mood for Romeah cabin travel",
-            label: "Cabin Travel",
-          },
-          {
             src: "/images/travel/cabin-luggage.jpg",
             alt: "Romeah cream cabin luggage product detail",
-            label: "Cabin Luggage",
+            label: "Carry-On",
+            href: "#carry-on",
           },
           {
             src: "/images/travel/luggage-detail.jpg",
             alt: "Romeah luggage leather and hardware detail",
-            label: "Craft Detail",
+            label: "Accessories",
+            href: "#accessories",
+          },
+          {
+            src: "/images/travel/florence-weekend.jpg",
+            alt: "Italian city light for Romeah long weekends",
+            label: "Weekend",
+            href: "#weekend",
           },
         ].map((item) => (
-          <div key={item.label} className="relative aspect-[4/5] bg-[#FAF9F6]">
+          <Link
+            key={item.label}
+            href={item.href}
+            className="relative aspect-[4/5] bg-[#FAF9F6] block group"
+          >
             <Image
               src={item.src}
               alt={item.alt}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover"
+              className="object-cover transition duration-700 group-hover:scale-[1.03]"
             />
             <p className="absolute bottom-4 left-4 text-xs tracking-[0.16em] bg-white/90 px-3 py-2">
               {item.label}
             </p>
-          </div>
+          </Link>
         ))}
       </section>
 

@@ -16,30 +16,49 @@ export const metadata = {
     "A refined everyday shoulder bag crafted with a softly structured silhouette and timeless proportions.",
 };
 
+/**
+ * Visual benchmark gallery: every studio frame uses the same canonical bag
+ * photograph with intentional crops so silhouette, leather, and hardware stay
+ * consistent until dedicated multi-angle studio assets replace these files.
+ */
+const CANONICAL = "/images/handbags/firenze-burgundy-front.jpg";
+
 const gallery = [
   {
-    src: "/images/handbags/firenze-burgundy-front.jpg",
-    alt: "Romeah Firenze burgundy leather shoulder bag front view",
+    src: CANONICAL,
+    alt: "Romeah Firenze burgundy leather shoulder bag — front view",
+    position: "object-center",
+    label: "Front",
   },
   {
-    src: "/images/handbags/firenze-burgundy-side.jpg",
-    alt: "Romeah Firenze burgundy shoulder bag side silhouette",
+    src: CANONICAL,
+    alt: "Romeah Firenze burgundy shoulder bag — side silhouette crop",
+    position: "object-left",
+    label: "Side",
   },
   {
-    src: "/images/handbags/firenze-burgundy-back.jpg",
-    alt: "Romeah Firenze burgundy shoulder bag back view",
+    src: CANONICAL,
+    alt: "Romeah Firenze burgundy shoulder bag — reverse / back crop",
+    position: "object-right",
+    label: "Back",
   },
   {
-    src: "/images/handbags/firenze-burgundy-interior.jpg",
-    alt: "Romeah Firenze burgundy bag interior and lining",
+    src: CANONICAL,
+    alt: "Romeah Firenze burgundy bag — interior opening crop",
+    position: "object-[center_70%]",
+    label: "Interior",
   },
   {
-    src: "/images/handbags/firenze-burgundy-detail.jpg",
-    alt: "Romeah Firenze bag champagne-gold hardware and leather detail",
+    src: CANONICAL,
+    alt: "Romeah Firenze bag — leather grain and champagne-gold hardware detail",
+    position: "object-[70%_40%] scale-150",
+    label: "Detail",
   },
   {
     src: "/images/handbags/firenze-burgundy-model.jpg",
-    alt: "Woman wearing Romeah Firenze burgundy shoulder bag with cream and black styling",
+    alt: "Woman wearing Romeah Firenze burgundy shoulder bag — scale reference",
+    position: "object-cover object-top",
+    label: "Model",
   },
 ];
 
@@ -53,15 +72,21 @@ export default function FirenzeBagPage() {
       <section className="grid lg:grid-cols-[1.6fr_0.8fr]">
         <div className="grid grid-cols-2 gap-[2px] bg-[#FAF9F6]">
           {gallery.map((shot) => (
-            <div key={shot.src} className="relative aspect-[4/5] bg-[#F7F3EE]">
+            <div
+              key={shot.label}
+              className="relative aspect-[4/5] bg-[#F7F3EE] overflow-hidden"
+            >
               <Image
                 src={shot.src}
                 alt={shot.alt}
                 fill
                 sizes="(max-width: 1024px) 50vw, 40vw"
-                className="object-cover"
-                priority={shot.src.includes("front")}
+                className={`object-cover ${shot.position}`}
+                priority={shot.label === "Front"}
               />
+              <span className="absolute bottom-3 left-3 text-[10px] tracking-[0.16em] bg-white/90 px-2 py-1">
+                {shot.label.toUpperCase()}
+              </span>
             </div>
           ))}
         </div>
@@ -75,8 +100,9 @@ export default function FirenzeBagPage() {
 
           <p className="leading-7 text-black/65 mt-10">
             A refined everyday shoulder bag crafted with a softly structured
-            silhouette and timeless proportions. Designed to transition
-            effortlessly from day to evening.
+            silhouette and timeless proportions. Deep burgundy leather with
+            understated champagne-gold hardware — the same bag across every
+            studio frame.
           </p>
 
           <div className="border-t mt-10">

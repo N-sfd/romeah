@@ -1,6 +1,13 @@
 import type { Product } from "@/data/products";
 import { products } from "@/data/products";
 
+export type LookHotspot = {
+  productId: number;
+  label: string;
+  x: number; // percent
+  y: number; // percent
+};
+
 export type Look = {
   id: string;
   slug: string;
@@ -8,6 +15,7 @@ export type Look = {
   subtitle: string;
   image: string;
   productIds: number[];
+  hotspots: LookHotspot[];
 };
 
 export type Collection = {
@@ -71,6 +79,12 @@ export const looks: Look[] = [
     subtitle: "Soft ivory tailoring, burgundy bag, and quiet gold.",
     image: "/images/shop-the-look/look-01.jpg",
     productIds: [1, 8, 9, 11],
+    hotspots: [
+      { productId: 8, label: "Knitwear", x: 48, y: 28 },
+      { productId: 1, label: "Bag", x: 68, y: 52 },
+      { productId: 11, label: "Earrings", x: 52, y: 14 },
+      { productId: 9, label: "Heels", x: 46, y: 88 },
+    ],
   },
   {
     id: "2",
@@ -78,15 +92,27 @@ export const looks: Look[] = [
     title: "Evening in Rome",
     subtitle: "A black evening dress, mini bag, and champagne earrings.",
     image: "/images/shop-the-look/look-02.jpg",
-    productIds: [7, 3, 9, 12],
+    productIds: [7, 3, 10, 12],
+    hotspots: [
+      { productId: 7, label: "Dress", x: 50, y: 42 },
+      { productId: 3, label: "Mini bag", x: 72, y: 58 },
+      { productId: 12, label: "Pendant", x: 48, y: 22 },
+      { productId: 10, label: "Flats", x: 45, y: 90 },
+    ],
   },
   {
     id: "3",
     slug: "weekend-departure",
     title: "Weekend Departure",
-    subtitle: "Trench spirit, tote, loafers, and cabin-ready luggage.",
+    subtitle: "Cabin trolley, tote, knit layer, and travel-ready ease.",
     image: "/images/shop-the-look/look-03.jpg",
-    productIds: [5, 6, 8, 4],
+    productIds: [5, 4, 8, 14],
+    hotspots: [
+      { productId: 5, label: "Carry-on", x: 30, y: 55 },
+      { productId: 4, label: "Tote", x: 62, y: 48 },
+      { productId: 8, label: "Knit", x: 48, y: 30 },
+      { productId: 14, label: "Pouch", x: 70, y: 70 },
+    ],
   },
 ];
 
@@ -150,8 +176,8 @@ export const homepageCms: HomepageBlock[] = [
     id: "new-arrivals",
     eyebrow: "JUST ARRIVED",
     title: "New Arrivals",
-    href: "/handbags",
-    productIds: [1, 2, 3, 4],
+    href: "/#new-arrivals",
+    productIds: [1, 7, 9, 11],
   },
   {
     type: "editorial",
@@ -170,7 +196,7 @@ export const homepageCms: HomepageBlock[] = [
     id: "bags",
     eyebrow: "ROMEAH ICONS",
     title: "Bags of the Season",
-    href: "/collections/la-notte",
+    href: "/handbags",
     productIds: [1, 2, 3, 4],
   },
   {
@@ -191,8 +217,8 @@ export const homepageCms: HomepageBlock[] = [
     eyebrow: "SHOP THE LOOK",
     title: "Dressed for the day",
     body: "Soft tailoring, quiet color and one exceptional bag — a complete look for mornings that become evenings.",
-    image: "/images/shop-the-look/look-01.jpg",
-    imageAlt: "Full-body Shop the Look styling with cream tailoring and burgundy accents",
+    image: "/images/shop-the-look/look-02.jpg",
+    imageAlt: "Evening Shop the Look styling with dress, mini bag and jewelry",
     href: "/shop-the-look",
     cta: "SHOP THE LOOK",
     tone: "light",

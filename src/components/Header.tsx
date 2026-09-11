@@ -54,7 +54,7 @@ export default function Header() {
           </div>
         </div>
 
-        <nav className="hidden lg:flex justify-center gap-9 text-xs tracking-[0.13em] pb-5">
+        <nav className="hidden lg:flex justify-center gap-7 xl:gap-9 text-xs tracking-[0.13em] pb-5">
           {navMenus.map((item) => (
             <div
               key={item.label}
