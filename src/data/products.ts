@@ -13,16 +13,22 @@ export type Product = {
   subcategory?: string;
   price: number;
   color: string;
+  colors?: string[];
   image: string;
+  imageHover?: string;
   imageAlt?: string;
   material?: string;
   size?: string;
   collection?: string;
   available?: boolean;
   featured?: boolean;
+  badge?: "New" | "Exclusive";
   description?: string;
   capacity?: string;
   weight?: string;
+  shell?: string;
+  wheels?: string;
+  lock?: string;
   idealFor?: string[];
 };
 
@@ -36,12 +42,15 @@ export const products: Product[] = [
     price: 295,
     color: "Burgundy",
     image: "/images/handbags/firenze-burgundy-front.jpg",
+    imageHover: "/images/handbags/firenze-burgundy-hover.jpg",
     imageAlt: "Romeah Firenze burgundy leather shoulder bag front view",
+    colors: ["Burgundy", "Black", "Ivory"],
     material: "Leather",
     size: "Medium",
     collection: "La Notte",
     available: true,
     featured: true,
+    badge: "Exclusive",
     description:
       "A refined everyday shoulder bag crafted with a softly structured silhouette.",
   },
@@ -54,12 +63,15 @@ export const products: Product[] = [
     price: 345,
     color: "Black",
     image: "/images/handbags/milano-black-front.jpg",
+    imageHover: "/images/handbags/milano-black-hover.jpg",
     imageAlt: "Romeah Milano black leather top-handle bag on light studio ground",
+    colors: ["Black", "Burgundy"],
     material: "Leather",
     size: "Medium",
     collection: "Milano",
     available: true,
     featured: true,
+    badge: "New",
   },
   {
     id: 3,
@@ -70,11 +82,14 @@ export const products: Product[] = [
     price: 245,
     color: "Ivory",
     image: "/images/handbags/roma-ivory-front.jpg",
+    imageHover: "/images/handbags/roma-ivory-hover.jpg",
     imageAlt: "Romeah Roma ivory mini bag in clean product photography",
+    colors: ["Ivory", "Black", "Gold"],
     material: "Leather",
     size: "Mini",
     collection: "Dolce Vita",
     available: true,
+    badge: "New",
   },
   {
     id: 4,
@@ -85,7 +100,9 @@ export const products: Product[] = [
     price: 390,
     color: "Olive",
     image: "/images/handbags/como-olive-front.jpg",
+    imageHover: "/images/handbags/como-olive-hover.jpg",
     imageAlt: "Romeah Como olive leather tote bag",
+    colors: ["Olive", "Black", "Ivory"],
     material: "Leather",
     size: "Large",
     collection: "Verde",
@@ -105,6 +122,9 @@ export const products: Product[] = [
     size: "Cabin",
     capacity: "35 L",
     weight: "2.8 kg",
+    shell: "Polycarbonate",
+    wheels: "360° spinner",
+    lock: "TSA-approved",
     collection: "Romeah Travel",
     available: true,
     featured: true,
@@ -131,6 +151,9 @@ export const products: Product[] = [
     size: "Large",
     capacity: "45 L",
     weight: "1.6 kg",
+    shell: "Leather",
+    wheels: "—",
+    lock: "Zippered",
     collection: "Romeah Travel",
     available: true,
     featured: true,
@@ -151,6 +174,9 @@ export const products: Product[] = [
     size: "Checked",
     capacity: "70 L",
     weight: "3.6 kg",
+    shell: "Polycarbonate",
+    wheels: "360° dual spinner",
+    lock: "TSA-approved",
     collection: "Romeah Travel",
     available: true,
     idealFor: ["Long-Haul Flights", "Week Away", "Business Travel"],

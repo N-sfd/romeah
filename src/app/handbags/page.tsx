@@ -14,10 +14,11 @@ export default function HandbagsPage() {
         "ALL BAGS",
         "SHOULDER BAGS",
         "CROSSBODY",
-        "TOTES",
+        "TOTE BAGS",
         "TOP HANDLE",
         "MINI BAGS",
-        "EVENING",
+        "EVENING BAGS",
+        "TRAVEL BAGS",
       ]}
     />
   );

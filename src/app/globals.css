@@ -55,3 +55,22 @@ summary {
 summary::-webkit-details-marker {
   display: none;
 }
+
+@keyframes romeah-hotspot-pulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+.romeah-hotspot-pulse {
+  animation: romeah-hotspot-pulse 2.4s ease-out infinite;
+}

@@ -18,6 +18,7 @@ const filterGroups = [
       "Top Handle",
       "Mini Bags",
       "Evening",
+      "Travel Bags",
     ],
   },
   {
@@ -102,7 +103,7 @@ export default function ProductFilters({ value, onChange }: Props) {
             onClick={() => setOpen(false)}
           />
 
-          <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white p-8 overflow-y-auto">
+          <div className="absolute inset-x-0 bottom-0 md:inset-y-0 md:right-0 md:left-auto h-[85vh] md:h-full w-full max-w-md bg-white p-8 overflow-y-auto rounded-t-sm md:rounded-none">
             <div className="flex justify-between mb-10">
               <h2 className="font-serif text-3xl">Filters</h2>
               <button type="button" onClick={() => setOpen(false)}>

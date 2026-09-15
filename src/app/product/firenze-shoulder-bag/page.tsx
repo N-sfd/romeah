@@ -16,48 +16,41 @@ export const metadata = {
     "A refined everyday shoulder bag crafted with a softly structured silhouette and timeless proportions.",
 };
 
-/**
- * Visual benchmark gallery: every studio frame uses the same canonical bag
- * photograph with intentional crops so silhouette, leather, and hardware stay
- * consistent until dedicated multi-angle studio assets replace these files.
- */
-const CANONICAL = "/images/handbags/firenze-burgundy-front.jpg";
-
+/** Every studio frame is the same burgundy Firenze bag — matching shade, silhouette, hardware, and strap. */
 const gallery = [
   {
-    src: CANONICAL,
+    src: "/images/handbags/firenze-burgundy-front.jpg",
     alt: "Romeah Firenze burgundy leather shoulder bag — front view",
-    position: "object-center",
     label: "Front",
   },
   {
-    src: CANONICAL,
-    alt: "Romeah Firenze burgundy shoulder bag — side silhouette crop",
-    position: "object-left",
+    src: "/images/handbags/firenze-burgundy-three-quarter.jpg",
+    alt: "Romeah Firenze burgundy shoulder bag — three-quarter angle",
+    label: "Three-quarter",
+  },
+  {
+    src: "/images/handbags/firenze-burgundy-side.jpg",
+    alt: "Romeah Firenze burgundy shoulder bag — side silhouette",
     label: "Side",
   },
   {
-    src: CANONICAL,
-    alt: "Romeah Firenze burgundy shoulder bag — reverse / back crop",
-    position: "object-right",
+    src: "/images/handbags/firenze-burgundy-back.jpg",
+    alt: "Romeah Firenze burgundy shoulder bag — back view",
     label: "Back",
   },
   {
-    src: CANONICAL,
-    alt: "Romeah Firenze burgundy bag — interior opening crop",
-    position: "object-[center_70%]",
+    src: "/images/handbags/firenze-burgundy-interior.jpg",
+    alt: "Romeah Firenze burgundy bag — interior lining",
     label: "Interior",
   },
   {
-    src: CANONICAL,
+    src: "/images/handbags/firenze-burgundy-detail.jpg",
     alt: "Romeah Firenze bag — leather grain and champagne-gold hardware detail",
-    position: "object-[70%_40%] scale-150",
     label: "Detail",
   },
   {
     src: "/images/handbags/firenze-burgundy-model.jpg",
     alt: "Woman wearing Romeah Firenze burgundy shoulder bag — scale reference",
-    position: "object-cover object-top",
     label: "Model",
   },
 ];
@@ -71,18 +64,20 @@ export default function FirenzeBagPage() {
       <TrackProductView productId={product.id} />
       <section className="grid lg:grid-cols-[1.6fr_0.8fr]">
         <div className="grid grid-cols-2 gap-[2px] bg-[#FAF9F6]">
-          {gallery.map((shot) => (
+          {gallery.map((shot, index) => (
             <div
               key={shot.label}
-              className="relative aspect-[4/5] bg-[#F7F3EE] overflow-hidden"
+              className={`relative aspect-[4/5] bg-[#F7F3EE] overflow-hidden ${
+                shot.label === "Model" ? "col-span-2 lg:col-span-1" : ""
+              }`}
             >
               <Image
                 src={shot.src}
                 alt={shot.alt}
                 fill
                 sizes="(max-width: 1024px) 50vw, 40vw"
-                className={`object-cover ${shot.position}`}
-                priority={shot.label === "Front"}
+                className="object-cover object-center"
+                priority={index === 0}
               />
               <span className="absolute bottom-3 left-3 text-[10px] tracking-[0.16em] bg-white/90 px-2 py-1">
                 {shot.label.toUpperCase()}

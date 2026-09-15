@@ -71,18 +71,22 @@ export default function Home() {
                     {block.title}
                   </h2>
                 </div>
-                {block.id !== "bags" && (
-                  <Link
-                    href={block.href}
-                    className="text-xs tracking-[0.15em] border-b border-black pb-1"
-                  >
-                    VIEW ALL
-                  </Link>
-                )}
+                <Link
+                  href={block.href}
+                  className="text-xs tracking-[0.15em] border-b border-black pb-1"
+                >
+                  VIEW ALL
+                </Link>
               </div>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+              <div
+                className={`grid grid-cols-2 gap-6 text-left ${
+                  items.length <= 2
+                    ? "lg:grid-cols-2 max-w-3xl mx-auto"
+                    : "lg:grid-cols-4"
+                }`}
+              >
                 {items.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                  <ProductCard key={`${block.id}-${product.id}`} product={product} />
                 ))}
               </div>
             </section>

@@ -12,8 +12,8 @@ const sortOptions = [
   "Recommended",
   "Newest",
   "Best Selling",
-  "Price: Low to High",
-  "Price: High to Low",
+  "Price Low to High",
+  "Price High to Low",
 ] as const;
 
 type SortOption = (typeof sortOptions)[number];
@@ -28,6 +28,7 @@ function matchesChip(product: Product, chip: string) {
   if (chip.includes("TOP HANDLE")) return sub.includes("top handle");
   if (chip.includes("MINI")) return sub.includes("mini");
   if (chip.includes("EVENING")) return sub.includes("evening");
+  if (chip.includes("TRAVEL")) return sub.includes("travel");
   if (chip.includes("CARRY")) return sub.includes("carry");
   if (chip.includes("WEEKEND")) return sub.includes("weekend");
   return sub.includes(normalized.toLowerCase()) || chip === "ALL";
@@ -120,9 +121,9 @@ export default function ProductToolbar({ products, chips = [] }: Props) {
   const sorted = useMemo(() => {
     const list = [...filtered];
     switch (sort) {
-      case "Price: Low to High":
+      case "Price Low to High":
         return list.sort((a, b) => a.price - b.price);
-      case "Price: High to Low":
+      case "Price High to Low":
         return list.sort((a, b) => b.price - a.price);
       case "Newest":
         return list.sort((a, b) => b.id - a.id);
@@ -212,7 +213,7 @@ export default function ProductToolbar({ products, chips = [] }: Props) {
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-14">
+        <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-x-5 gap-y-12">
           {sorted.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

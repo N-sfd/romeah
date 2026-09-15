@@ -21,13 +21,19 @@ export const navMenus: NavMenu[] = [
     image: "/images/shop-the-look/look-01.jpg",
     columns: [
       {
-        heading: "SHOP BY CATEGORY",
+        heading: "DRESSES",
         links: [
-          { label: "Dresses", href: "/clothing" },
-          { label: "Knitwear", href: "/clothing" },
+          { label: "All Dresses", href: "/clothing" },
+          { label: "Eveningwear", href: "/clothing" },
+        ],
+      },
+      {
+        heading: "TAILORING & KNITWEAR",
+        links: [
           { label: "Tailoring", href: "/clothing" },
+          { label: "Knitwear", href: "/clothing" },
           { label: "Tops", href: "/clothing" },
-          { label: "Skirts", href: "/clothing" },
+          { label: "Bottoms", href: "/clothing" },
         ],
       },
       {
@@ -36,13 +42,7 @@ export const navMenus: NavMenu[] = [
           { label: "New Arrivals", href: "/#new-arrivals" },
           { label: "The Edit", href: "/the-edit" },
           { label: "Shop the Look", href: "/shop-the-look" },
-        ],
-      },
-      {
-        heading: "MORE",
-        links: [
-          { label: "Sale", href: "/handbags" },
-          { label: "Eveningwear", href: "/clothing" },
+          { label: "Sale", href: "/clothing" },
         ],
       },
     ],
@@ -72,11 +72,11 @@ export const navMenus: NavMenu[] = [
         ],
       },
       {
-        heading: "ACCESSORIES",
+        heading: "SMALL LEATHER GOODS",
         links: [
           { label: "Wallets", href: "/handbags" },
           { label: "Straps", href: "/handbags" },
-          { label: "Small Leather Goods", href: "/handbags" },
+          { label: "Card Holders", href: "/handbags" },
         ],
       },
     ],
@@ -99,7 +99,7 @@ export const navMenus: NavMenu[] = [
       {
         heading: "FEATURED",
         links: [
-          { label: "New Arrivals", href: "/shoes" },
+          { label: "Shoes Edit", href: "/#shoes-edit" },
           { label: "Sale", href: "/shoes" },
         ],
       },
@@ -130,7 +130,7 @@ export const navMenus: NavMenu[] = [
       {
         heading: "FEATURED",
         links: [
-          { label: "Fine Details", href: "/#jewelry" },
+          { label: "Jewelry Focus", href: "/#jewelry-focus" },
           { label: "The Edit", href: "/the-edit" },
         ],
       },
@@ -153,23 +153,24 @@ export const navMenus: NavMenu[] = [
         heading: "LUGGAGE",
         links: [
           { label: "Carry-On", href: "/travel#carry-on" },
-          { label: "Weekend", href: "/travel#weekend" },
-          { label: "Long-Haul", href: "/travel#long-haul" },
+          { label: "Checked Luggage", href: "/travel#long-haul" },
+          { label: "Find Your Size", href: "/travel#find-your-size" },
+        ],
+      },
+      {
+        heading: "WEEKEND & BUSINESS",
+        links: [
+          { label: "Weekend Bags", href: "/travel#weekend" },
+          { label: "Business Travel", href: "/travel#carry-on" },
+          { label: "Travel Totes", href: "/handbags" },
+        ],
+      },
+      {
+        heading: "ACCESSORIES",
+        links: [
+          { label: "Beauty Cases", href: "/travel#accessories" },
           { label: "Travel Accessories", href: "/travel#accessories" },
-        ],
-      },
-      {
-        heading: "STORIES",
-        links: [
-          { label: "The Art of Arrival", href: "/travel" },
           { label: "72 Hours in Florence", href: "/travel#florence" },
-        ],
-      },
-      {
-        heading: "MORE",
-        links: [
-          { label: "Sale", href: "/travel" },
-          { label: "Shop the Look", href: "/shop-the-look" },
         ],
       },
     ],
