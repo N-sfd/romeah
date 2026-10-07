@@ -136,7 +136,7 @@ export default function TravelPage() {
           </p>
           <Link
             href="#carry-on"
-            className="inline-block bg-white text-black px-8 py-4 text-xs tracking-[0.15em]"
+            className="inline-block bg-white text-[#1a1816] px-8 py-4 text-xs tracking-[0.15em]"
           >
             EXPLORE THE COLLECTION
           </Link>

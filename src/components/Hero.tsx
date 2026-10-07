@@ -26,7 +26,7 @@ export default function Hero() {
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/handbags"
-            className="bg-white text-black px-8 py-4 text-xs tracking-[0.16em]"
+            className="bg-white text-[#1a1816] px-8 py-4 text-xs tracking-[0.16em]"
           >
             SHOP THE COLLECTION
           </Link>

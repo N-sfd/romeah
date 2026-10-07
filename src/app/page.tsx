@@ -32,7 +32,7 @@ export default function Home() {
                 <div className="flex flex-wrap justify-center gap-4">
                   <Link
                     href={block.ctaPrimary.href}
-                    className="bg-white text-black px-8 py-4 text-xs tracking-[0.16em]"
+                    className="bg-white text-[#1a1816] px-8 py-4 text-xs tracking-[0.16em]"
                   >
                     {block.ctaPrimary.label}
                   </Link>
@@ -115,7 +115,7 @@ export default function Home() {
                   <p className="text-lg mb-8">{block.body}</p>
                   <Link
                     href={block.href}
-                    className="inline-block bg-white text-black px-8 py-4 text-xs tracking-[0.15em]"
+                    className="inline-block bg-white text-[#1a1816] px-8 py-4 text-xs tracking-[0.15em]"
                   >
                     {block.cta}
                   </Link>
