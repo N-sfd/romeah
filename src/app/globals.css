@@ -19,41 +19,43 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  margin: 0;
-  background: #fcfbf9;
-  color: #1a1816;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    margin: 0;
+    background: #fcfbf9;
+    color: #1a1816;
+    -webkit-font-smoothing: antialiased;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-button {
-  font: inherit;
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-}
+  button {
+    font: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+  }
 
-img {
-  display: block;
-  max-width: 100%;
-}
+  img {
+    display: block;
+    max-width: 100%;
+  }
 
-summary {
-  list-style: none;
-}
+  summary {
+    list-style: none;
+  }
 
-summary::-webkit-details-marker {
-  display: none;
+  summary::-webkit-details-marker {
+    display: none;
+  }
 }
 
 @keyframes romeah-hotspot-pulse {
